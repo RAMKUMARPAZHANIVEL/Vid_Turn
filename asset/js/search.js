@@ -46,29 +46,31 @@ fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=
         upload_date_elem.innerText = upload_date;
 
         const card_body_div = document.createElement('div');
-        card_body_div.classList.add('card-body');
+        card_body_div.classList.add('card-body','text-bg-dark');
+        card_body_div.style.maxWidth = "50 px";
         card_body_div.appendChild(anchor_elem);
         card_body_div.appendChild(channel_name_elem);
         card_body_div.appendChild(description_elem);
         card_body_div.appendChild(upload_date_elem);
 
         const video_detail_div = document.createElement('div');
-        video_detail_div.classList.add('col-md-8');
+        video_detail_div.classList.add('col-md-9', 'col-sm-7');
         // to check--------
         video_detail_div.appendChild(card_body_div);
 
         const image_elem = document.createElement('img');
-        image_elem.classList.add('img-fluid', 'rounded-start');
         image_elem.src = thumbnail;
-
+        image_elem.classList.add('img-fluid', 'rounded-start');
+        
         const video_div = document.createElement('div');
-        video_div.classList.add('col-md-4');
+        video_div.classList.add('col-md-3','col-sm-5');
         video_div.style.display ="flex";
-        video_div.style.display ="center";
+        video_div.style.alignItems ="centre";
+        // video_div.style.background ="#000000"
         video_div.appendChild(image_elem);
 
         const inner_card = document.createElement('div');
-        inner_card.classList.add('row','g-0');
+        inner_card.classList.add('row','g-0','bg-light');
         inner_card.appendChild(video_div);
         inner_card.appendChild(video_detail_div);
 
@@ -77,7 +79,7 @@ fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=
         outer_card.appendChild(inner_card);
 
         const row = document.createElement('div');
-        row.classList.add('bg-light','border');
+        row.classList.add('bg-light');
         row.appendChild(outer_card);
 
         const card_stack = document.getElementById('stack_container');
